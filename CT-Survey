@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommissionTracker - Track your commissions without the spreadsheet headache</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        .logo {
+            background-color: #4070F4;
+            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-section {
+            margin-bottom: 50px;
+        }
+
+        .lead-text {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 750px;
+        }
+
+        .feature-list {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .feature-item {
+            margin-bottom: 12px;
+        }
+
+        .checkmark {
+            color: #4070F4;
+            margin-right: 10px;
+        }
+
+        .tagline {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .survey-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input, .checkbox-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rating-label {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            background-color: #4070F4;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #3060e0;
+        }
+
+        .optional {
+            font-size: 14px;
+            color: #777;
+            margin-left: 5px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+            </div>
+            <div class="brand-name">CommissionTracker</div>
+        </div>
+
+        <div class="hero-section">
+            <h1>Track your commissions.<br>Without the spreadsheet headache.</h1>
+            <p class="lead-text">Getting paid on closed deals shouldn't be a mystery. Between changing plans, churn, clawbacks, and kickers — tracking commissions is a job in itself. CommissionTracker is built for sales reps, not finance teams.</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="checkmark">✅</span> Upload your commission paychecks
+                </div>
+                <div class="feature-item">
+                    <span class="checkmark">✅</span> Log your closed-won deals & pre-tax payouts
+                </div>
+                <div class="feature-item">
+                    <span class="checkmark">✅</span> Automatically track what you're owed, every month
+                </div>
+            </div>
+            
+            <p class="tagline">No more Excel. No more "Is this right?". Just clarity.</p>
+        </div>
+
+        <div id="survey" class="survey-container">
+            <h2 style="margin-bottom: 30px;">Help us build the right solution for you</h2>
+            
+            <form id="commissionSurvey">
+                <div class="question">
+                    <div class="question-text">What's your current role/title? <span class="required">*</span></div>
+                    <select required name="role">
+                        <option value="">Select your role</option>
+                        <option value="AE">AE</option>
+                        <option value="SDR">SDR</option>
+                        <option value="Sales Manager">Sales Manager</option>
+                        <option value="CSM">CSM</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div id="otherRoleField" style="display: none; margin-top: 10px;">
+                        <input type="text" name="otherRole" placeholder="Please specify your role">
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">How many years have you been in a quota-carrying sales role? <span class="required">*</span></div>
+                    <select required name="yearsExperience">
+                        <option value="">Select years of experience</option>
+                        <option value="<1">Less than 1 year</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6+">6+ years</option>
+                    </select>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">How do you currently track your commissions? <span class="required">*</span></div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="track_dont" name="tracking_method" value="I don't">
+                            <label for="track_dont">I don't</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="track_excel" name="tracking_method" value="Excel/Google Sheets">
+                            <label for="track_excel">Excel/Google Sheets</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="track_crm" name="tracking_method" value="CRM">
+                            <label for="track_crm">CRM</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="track_notion" name="tracking_method" value="Notion">
+                            <label for="track_notion">Notion</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="track_other" name="tracking_method" value="Other">
+                            <label for="track_other">Other</label>
+                        </div>
+                    </div>
+                    <div id="otherTrackingField" style="display: none; margin-top: 10px;">
+                        <input type="text" name="otherTracking" placeholder="Please specify your tracking method">
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">How confident are you that you're paid accurately each month? <span class="required">*</span></div>
+                    <div class="rating-scale">
+                        <div class="rating-option">
+                            <input type="radio" id="confidence_1" name="confidence" value="1" required>
+                            <label for="confidence_1">1</label>
+                            <div class="rating-label">Not at all</div>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="confidence_2" name="confidence" value="2">
+                            <label for="confidence_2">2</label>
+                            <div class="rating-label"></div>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="confidence_3" name="confidence" value="3">
+                            <label for="confidence_3">3</label>
+                            <div class="rating-label"></div>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="confidence_4" name="confidence" value="4">
+                            <label for="confidence_4">4</label>
+                            <div class="rating-label"></div>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="confidence_5" name="confidence" value="5">
+                            <label for="confidence_5">5</label>
+                            <div class="rating-label">Very confident</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">Have you ever found a mistake in your commission check? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="mistake_yes" name="foundMistake" value="Yes" required>
+                            <label for="mistake_yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="mistake_no" name="foundMistake" value="No">
+                            <label for="mistake_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">What's the most frustrating part of tracking or understanding your commissions? <span class="optional">(Optional)</span></div>
+                    <textarea name="frustration" rows="3" placeholder="Share your thoughts..."></textarea>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">Would you use a tool that automatically tracks commissions from deal data and paystubs? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="use_yes" name="wouldUse" value="Yes" required>
+                            <label for="use_yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="use_no" name="wouldUse" value="No">
+                            <label for="use_no">No</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="use_maybe" name="wouldUse" value="Maybe">
+                            <label for="use_maybe">Maybe</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">How much would a tool like this be worth to you monthly? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="worth_0" name="worthAmount" value="$0" required>
+                            <label for="worth_0">$0</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="worth_5" name="worthAmount" value="$5">
+                            <label for="worth_5">$5</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="worth_10" name="worthAmount" value="$10">
+                            <label for="worth_10">$10</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="worth_20" name="worthAmount" value="$20">
+                            <label for="worth_20">$20</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="worth_50plus" name="worthAmount" value="$50+">
+                            <label for="worth_50plus">$50+</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">Would you be interested in early access to the beta? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="early_yes" name="earlyAccess" value="Yes" required>
+                            <label for="early_yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="early_no" name="earlyAccess" value="No">
+                            <label for="early_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">Would you like to receive updates on the project? <span class="required">*</span></div>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="updates_yes" name="receiveUpdates" value="Yes" required>
+                            <label for="updates_yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="updates_no" name="receiveUpdates" value="No">
+                            <label for="updates_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">What's your email? <span class="required" id="email_required" style="display: none;">*</span><span class="optional" id="email_optional">(Optional)</span></div>
+                    <input type="email" name="email" id="email_field" placeholder="yourname@company.com">
+                </div>
+                
+                <div class="question">
+                    <div class="question-text">Anything else you'd want to see in a tool like this? <span class="optional">(Optional)</span></div>
+                    <textarea name="additionalFeatures" rows="3" placeholder="Share your ideas..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Survey</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 CommissionTracker. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Show/hide "Other" field for role
+        document.querySelector('select[name="role"]').addEventListener('change', function() {
+            const otherField = document.getElementById('otherRoleField');
+            if (this.value === 'Other') {
+                otherField.style.display = 'block';
+            } else {
+                otherField.style.display = 'none';
+            }
+        });
+        
+        // Show/hide "Other" field for tracking method
+        document.getElementById('track_other').addEventListener('change', function() {
+            const otherField = document.getElementById('otherTrackingField');
+            if (this.checked) {
+                otherField.style.display = 'block';
+            } else {
+                otherField.style.display = 'none';
+            }
+        });
+        
+        // Handle early access and email requirement
+        document.querySelectorAll('input[name="earlyAccess"], input[name="receiveUpdates"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                checkEmailRequirement();
+            });
+        });
+        
+        function checkEmailRequirement() {
+            const earlyAccessYes = document.getElementById('early_yes').checked;
+            const updatesYes = document.getElementById('updates_yes').checked;
+            const emailField = document.getElementById('email_field');
+            const emailRequired = document.getElementById('email_required');
+            const emailOptional = document.getElementById('email_optional');
+            
+            if (earlyAccessYes || updatesYes) {
+                emailField.required = true;
+                emailRequired.style.display = 'inline';
+                emailOptional.style.display = 'none';
+            } else {
+                emailField.required = false;
+                emailRequired.style.display = 'none';
+                emailOptional.style.display = 'inline';
+            }
+        }
+        
+        // Form submission (for demo purposes)
+        document.getElementById('commissionSurvey').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll be in touch soon.');
+            // In a real implementation, you'd use AJAX to submit the form data to your server
+        });
+    </script>
+</body>
+</html>
+
