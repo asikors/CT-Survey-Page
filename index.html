@@ -473,12 +473,10 @@
             }
         }
         
-        // Form submission (for demo purposes)
-        document.getElementById('commissionSurvey').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We\'ll be in touch soon.');
-            // In a real implementation, you'd use AJAX to submit the form data to your server
-        });
+       document.getElementById('commissionSurvey').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.location.href = 'CT-thank-You-Page';
+});
     </script>
 </body>
 </html>
