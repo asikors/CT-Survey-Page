@@ -225,7 +225,7 @@
         <div id="survey" class="survey-container">
             <h2 style="margin-bottom: 30px;">Help us build the right solution for you</h2>
             
-            <form id="commissionSurvey" action="CT-Thank-You-Page.html" method="POST">
+            <form id="commissionSurvey">
                 <div class="question">
                     <div class="question-text">What's your current role/title? <span class="required">*</span></div>
                     <select required name="role">
@@ -417,7 +417,12 @@
             </form>
         </div>
     </div>
-    
+    <script>
+  document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent default form behavior
+    window.location.href = 'CT-thank-You-Page.html';
+  });
+</script>
     <footer>
         <p>&copy; 2025 CommissionTracker. All rights reserved.</p>
     </footer>
