@@ -1,0 +1,227 @@
+Thank you
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - CommissionTracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        .logo {
+            background-color: #4070F4;
+            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .thank-you-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .share-button {
+            background-color: #4070F4;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .share-button:hover {
+            background-color: #3060e0;
+        }
+
+        .checkmark-container {
+            margin: 20px 0;
+        }
+
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #4070F4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .checkmark-circle svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .social-text {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .contact-text {
+            font-size: 16px;
+            color: #666;
+            margin-top: 30px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 14px;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        @keyframes confettiAnimation {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confettiAnimation 3s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+            </div>
+            <div class="brand-name">CommissionTracker</div>
+        </div>
+
+        <div class="thank-you-card" id="confetti-container">
+            <div class="checkmark-container">
+                <div class="checkmark-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <h1>Thanks for helping shape CommissionTracker.</h1>
+            
+            <p>To follow along find us on social <strong>@CommissionTracker</strong></p>
+            
+            <p>If you entered your email and asked for beta access, you're on the list. Additionally, if you asked for updates we'll keep you in the loop!</p>
+            
+            <p>We know your time is valuable — thanks for taking a few minutes to help us build something that makes commission tracking easier (and way less annoying).</p>
+            
+            <p>👉 Know a rep who should see this?</p>
+            <a href="https://commissiontracker.ai/survey" class="share-button">Share the survey</a>
+            
+            <p class="contact-text">If you need help or want to update your preferences please email us at: <a href="mailto:help@commissiontracker.ai">help@commissiontracker.ai</a></p>
+        </div>
+    </div>
+    
+    <footer class="container">
+        <p>&copy; 2025 CommissionTracker. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Create confetti animation
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#4070F4', '#FF5757', '#62DE85', '#FFC107', '#9C27B0'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random position, color, size, and timing
+                const size = Math.random() * 10 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `${Math.random() * 20}%`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                confetti.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Run the confetti animation when the page loads
+        window.addEventListener('load', createConfetti);
+    </script>
+</body>
+</html>
