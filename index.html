@@ -430,9 +430,19 @@
         }
         
        document.getElementById('commissionSurvey').addEventListener('submit', function(e) {
-    e.preventDefault();
-    window.location.href = 'CT-Thank-You-Page';
-});
+           const betaYesSelected = document.getElementById('beta_yes').checked;
+           const emailInput = document.querySelector('input[name="email"]');
+
+           if (betaYesSelected && !emailInput.value.trim()) {
+               e.preventDefault();
+               alert("Please enter your email to join the beta program.");
+               emailInput.focus();
+               return;
+           }
+
+           e.preventDefault();
+           window.location.href = 'CT-Thank-You-Page.html';
+       });
     </script>
 </body>
 </html>
