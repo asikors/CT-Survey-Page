@@ -433,30 +433,6 @@
             }
         });
         
-        // Handle early access and email requirement
-        document.querySelectorAll('input[name="earlyAccess"], input[name="receiveUpdates"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                checkEmailRequirement();
-            });
-        });
-        
-        function checkEmailRequirement() {
-            const earlyAccessYes = document.getElementById('early_yes').checked;
-            const updatesYes = document.getElementById('updates_yes').checked;
-            const emailField = document.getElementById('email_field');
-            const emailRequired = document.getElementById('email_required');
-            const emailOptional = document.getElementById('email_optional');
-            
-            if (earlyAccessYes || updatesYes) {
-                emailField.required = true;
-                emailRequired.style.display = 'inline';
-                emailOptional.style.display = 'none';
-            } else {
-                emailField.required = false;
-                emailRequired.style.display = 'none';
-                emailOptional.style.display = 'inline';
-            }
-        }
         
        document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
            const betaYesSelected = document.getElementById('beta_yes').checked;
