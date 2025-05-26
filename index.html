@@ -415,6 +415,7 @@
       document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
         const betaYesSelected = document.getElementById('beta_yes').checked;
         const emailInput = document.querySelector('input[name="email"]');
+        const submitBtn = document.querySelector('.submit-btn');
 
         if (betaYesSelected && !emailInput.value.trim()) {
           e.preventDefault();
@@ -424,6 +425,9 @@
         }
 
         e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
         const formData = new FormData(this);
 
         fetch(this.action, {
@@ -434,6 +438,8 @@
         }).catch(error => {
           alert("There was an error submitting the form. Please try again.");
           console.error("Form submission error:", error);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Survey';
         });
       });
     </script>
