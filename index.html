@@ -368,93 +368,74 @@
             </form>
         </div>
     </div>
-    <script>
-    document.querySelector('select[name="role"]').addEventListener('change', function() {
-        document.getElementById('otherRoleField').style.display = this.value === 'Other' ? 'block' : 'none';
-    });
-
-    document.querySelectorAll('input[name="trackingMethod"]').forEach(el => {
-        el.addEventListener('change', () => {
-            const show = document.getElementById('track_other').checked;
-            document.getElementById('otherTrackingField').style.display = show ? 'block' : 'none';
-        });
-    });
-
-    document.getElementById('challenge_other').addEventListener('change', function() {
-        document.getElementById('otherChallengeField').style.display = this.checked ? 'block' : 'none';
-    });
-
-    // Limit checkbox selection to 3 for commission challenge question
-    document.querySelectorAll('input[name="challenge"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            const checked = document.querySelectorAll('input[name="challenge"]:checked');
-            if (checked.length > 3) {
-                this.checked = false;
-                alert("You can select up to 3 options.");
-            }
-        });
-    });
-
-    // Show/hide email field based on beta selection
-    const betaRadios = document.querySelectorAll('input[name="betaAccess"]');
-    const emailFieldWrapper = document.getElementById('emailFieldWrapper');
-    betaRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if (document.getElementById('beta_yes').checked) {
-                emailFieldWrapper.style.display = 'block';
-            } else {
-                emailFieldWrapper.style.display = 'none';
-            }
-        });
-    });
-    </script>
     <footer>
         <p>&copy; 2025 CommissionTracker. All rights reserved.</p>
     </footer>
 
     <script>
-        // Show/hide "Other" field for role
-        document.querySelector('select[name="role"]').addEventListener('change', function() {
-            const otherField = document.getElementById('otherRoleField');
-            if (this.value === 'Other') {
-                otherField.style.display = 'block';
-            } else {
-                otherField.style.display = 'none';
-            }
+      // Show/hide "Other" field for role
+      document.querySelector('select[name="role"]').addEventListener('change', function () {
+        document.getElementById('otherRoleField').style.display = this.value === 'Other' ? 'block' : 'none';
+      });
+
+      // Show/hide "Other" field for tracking method
+      document.querySelectorAll('input[name="trackingMethod"]').forEach(el => {
+        el.addEventListener('change', () => {
+          const show = document.getElementById('track_other').checked;
+          document.getElementById('otherTrackingField').style.display = show ? 'block' : 'none';
         });
-        
-        // Show/hide "Other" field for tracking method
-        document.getElementById('track_other').addEventListener('change', function() {
-            const otherField = document.getElementById('otherTrackingField');
-            if (this.checked) {
-                otherField.style.display = 'block';
-            } else {
-                otherField.style.display = 'none';
-            }
+      });
+
+      // Show/hide "Other" field for challenge
+      document.getElementById('challenge_other').addEventListener('change', function () {
+        document.getElementById('otherChallengeField').style.display = this.checked ? 'block' : 'none';
+      });
+
+      // Limit checkbox selection to 3 for commission challenge question
+      document.querySelectorAll('input[name="challenge"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+          const checked = document.querySelectorAll('input[name="challenge"]:checked');
+          if (checked.length > 3) {
+            this.checked = false;
+            alert("You can select up to 3 options.");
+          }
         });
-        
-        
-       document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
-           const betaYesSelected = document.getElementById('beta_yes').checked;
-           const emailInput = document.querySelector('input[name="email"]');
+      });
 
-           if (betaYesSelected && !emailInput.value.trim()) {
-               e.preventDefault();
-               alert("Please enter your email to join the beta program.");
-               emailInput.focus();
-               return;
-           }
+      // Show/hide email field based on beta selection
+      const betaRadios = document.querySelectorAll('input[name="betaAccess"]');
+      const emailFieldWrapper = document.getElementById('emailFieldWrapper');
+      betaRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          emailFieldWrapper.style.display = document.getElementById('beta_yes').checked ? 'block' : 'none';
+        });
+      });
 
-           e.preventDefault();
-           const formData = new FormData(this);
+      // Form submission handler
+      document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
+        const betaYesSelected = document.getElementById('beta_yes').checked;
+        const emailInput = document.querySelector('input[name="email"]');
 
-           fetch(this.action, {
-               method: 'POST',
-               body: formData
-           }).then(() => {
-               window.location.href = 'CT-Thank-You-Page.html';
-           });
-       });
+        if (betaYesSelected && !emailInput.value.trim()) {
+          e.preventDefault();
+          alert("Please enter your email to join the beta program.");
+          emailInput.focus();
+          return;
+        }
+
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+          method: 'POST',
+          body: formData
+        }).then(() => {
+          window.location.href = 'CT-Thank-You-Page.html';
+        }).catch(error => {
+          alert("There was an error submitting the form. Please try again.");
+          console.error("Form submission error:", error);
+        });
+      });
     </script>
 </body>
 </html>
