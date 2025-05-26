@@ -1,5 +1,3 @@
-Thank you
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,10 +177,10 @@ Thank you
             
             <p>If you entered your email and asked for beta access, you're on the list. Additionally, if you asked for updates we'll keep you in the loop!</p>
             
-            <p>We know your time is valuable — thanks for taking a few minutes to help us build something that makes commission tracking easier (and way less annoying).</p>
+            <p>We know your time is valuable — thanks for taking a few minutes to help us build something useful.</p>
             
             <p>👉 Know a rep who should see this?</p>
-            <a href="https://commissiontracker.ai/survey" class="share-button">Share the survey</a>
+            <button class="share-button" onclick="copySurveyLink()">Copy survey link</button>
             
             <p class="contact-text">If you need help or want to update your preferences please email us at: <a href="mailto:help@commissiontracker.ai">help@commissiontracker.ai</a></p>
         </div>
@@ -222,6 +220,13 @@ Thank you
         
         // Run the confetti animation when the page loads
         window.addEventListener('load', createConfetti);
+
+        function copySurveyLink() {
+          const link = 'https://commissiontracker.online/';
+          navigator.clipboard.writeText(link).then(() => {
+            alert('Survey link copied to clipboard!');
+          });
+        }
     </script>
 </body>
 </html>
