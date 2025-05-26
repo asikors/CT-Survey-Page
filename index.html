@@ -225,7 +225,7 @@
         <div id="survey" class="survey-container">
             <h2 style="margin-bottom: 30px;">Help us build the right solution for you</h2>
             
-            <form id="commissionSurvey">
+            <form id="commissionSurvey" action="https://script.google.com/macros/s/AKfycbwGaNnU350xDAnkB-37L8-nVJUEU0nKNPKyGLshyZVPuu-fpfY9DWnv1O-I4knaJLbueg/exec" method="POST">
                 <div class="question">
                     <div class="question-text">What’s your current role/title? <span class="required">*</span></div>
                     <select required name="role">
@@ -458,7 +458,7 @@
             }
         }
         
-       document.getElementById('commissionSurvey').addEventListener('submit', function(e) {
+       document.getElementById('commissionSurvey').addEventListener('submit', function (e) {
            const betaYesSelected = document.getElementById('beta_yes').checked;
            const emailInput = document.querySelector('input[name="email"]');
 
@@ -470,7 +470,14 @@
            }
 
            e.preventDefault();
-           window.location.href = 'CT-Thank-You-Page.html';
+           const formData = new FormData(this);
+
+           fetch(this.action, {
+               method: 'POST',
+               body: formData
+           }).then(() => {
+               window.location.href = 'CT-Thank-You-Page.html';
+           });
        });
     </script>
 </body>
